@@ -79,6 +79,11 @@ function App() {
     return grandTotal
   }
 
+  const getNumberOfItemInCart = () => {
+    const productsCount = cart.reduce((sum,product) => sum + product.quantityInCart,0)
+    return productsCount
+  }
+
 
 
 
@@ -93,9 +98,11 @@ function App() {
   }
 
 
+
+
   return (
     <div>
-      <Navbar/>
+      <Navbar getNumberOfItemInCart={getNumberOfItemInCart}/>
       <h1 className='text-4xl'>Welcome to <span className='font-extrabold text-indigo-600'>StripeStore.</span> This store is set up for shopping cart system management and how to integrate Stripe payment.</h1>
       <Outlet context={{contextValue}}/>
     </div>
