@@ -1,4 +1,4 @@
-export const products = [
+const products = [
     {
         id:1,
         img: "https://static.techspot.com/images/products/2022/smartphones/org/2022-09-14-product-13.jpg",
@@ -49,3 +49,18 @@ export const products = [
     }
 
 ]
+
+
+const getProductData = (id) => {
+    let productData = products.find(product => product.id === id)
+    
+    if(productData == undefined){
+        console.error("Product does not exist")
+        return undefined
+    }
+
+    return productData
+}
+
+
+export {products,getProductData}
